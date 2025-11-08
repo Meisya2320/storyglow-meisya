@@ -1,0 +1,9 @@
+{
+  "name": "StoryGlow",
+  "short_name": "StoryGlow",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFF9FA",
+  "theme_color": "#FFB6C1",
+  "scope": "."
+}

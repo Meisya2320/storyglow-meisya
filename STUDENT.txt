@@ -1,0 +1,117 @@
+# ============================================
+# INFORMASI DEVELOPER
+# ============================================
+
+Nama: Meisya Pradana Mentari
+Email: meisyapr@gmail.com
+Kelas: Belajar Pengembangan Web Intermediate
+Proyek: StoryGlow - Platform Berbagi Cerita Menarik dari Seluruh Dunia 
+
+# ============================================
+# URL DEPLOYMENT
+# ============================================
+
+Live URL: [MASUKKAN URL NETLIFY ANDA DI SINI SETELAH DEPLOY]
+
+https://storyglow-meisya.netlify.app
+# Platform: Netlify
+
+# ============================================
+# DESKRIPSI PROJECT
+# ============================================
+
+StoryGlow adalah Progressive Web Application (PWA) untuk platform berbagi cerita yang memungkinkan pengguna berbagi pengalaman dan cerita menarik dari seluruh dunia.
+Aplikasi ini dilengkapi dengan fitur peta interaktif, push notification, offline support, dan background sync untuk pengalaman pengguna yang optimal.
+
+# ============================================
+# CREDENTIALS UNTUK TESTING
+# ============================================
+
+Aplikasi menggunakan auto-authentication untuk seamless experience.
+Reviewer tidak perlu login manual.
+
+Untuk testing fitur auth (optional):
+- Email: storyglow.meisyapr@gmail.com
+- Password: 12345678
+
+Atau register akun baru melalui halaman Auth.
+
+# ============================================
+# STRUKTUR PROJECT
+# ============================================
+
+project/
+├── dist/                          (Build output - deployed)
+├── src/
+│   ├── public/
+│   │   ├── images/                (Icons & assets)
+│   │   │   └── logo.png
+│   │   └── favicon.png
+│   ├── scripts/
+│   │   ├── data/
+│   │   │   └── api.js            (API Service Layer)
+│   │   ├── pages/
+│   │   │   ├── home/             (Homepage dengan story list)
+│   │   │   ├── auth/             (Authentication page)
+│   │   │   ├── about/            (Add Story form + offline support)
+│   │   │   ├── map/              (Map page dengan markers)
+│   │   │   ├── detail/           (Detail story page + offline support)
+│   │   │   └── app.js            (Main App Controller)
+│   │   ├── routes/
+│   │   │   ├── routes.js         (Route Configuration)
+│   │   │   └── url-parser.js     (URL Parser)
+│   │   ├── utils/
+│   │   │   ├── config.js         (App Config + VAPID Key)
+│   │   │   ├── index.js          (Helper Functions)
+│   │   │   ├── notification-helper.js  (Push Notification Manager) 🆕
+│   │   │   ├── db-helper.js      (IndexedDB Manager) 🆕
+│   │   │   └── sync-helper.js    (Background Sync Manager) 🆕
+│   │   └── index.js              (Entry Point + PWA Init) 🆕
+│   ├── styles/
+│   │   └── styles.css            (Main Stylesheet + PWA Styles)
+│   └── index.html                (HTML Template)
+├── manifest.json                  (PWA Manifest) 🆕
+├── sw.js                          (Service Worker) 🆕
+├── offline.html                   (Offline Fallback Page) 🆕
+├── .gitignore
+├── .nojekyll                      (untuk GitHub Pages, tidak dipakai)
+├── package.json
+├── package-lock.json
+├── webpack.common.js
+├── webpack.dev.js
+├── webpack.prod.js
+├── STUDENT.txt                    (File ini)
+└── README.md
+
+# ============================================
+# KNOWN LIMITATIONS
+# ============================================
+
+- Push notification tidak work di Safari (iOS/macOS)
+- Background Sync API tidak support di Firefox (fallback: manual sync)
+- Camera capture mungkin tidak work di browser tertentu (fallback: file upload)
+- Geolocation permission required untuk "Lokasi saya saat ini"
+- IndexedDB limit per domain: ~50MB (lebih dari cukup untuk use case ini)
+- Service Worker cache size: unlimited tapi perlu periodic cleanup
+
+# ============================================
+# CREDITS & ACKNOWLEDGMENTS
+# ============================================
+
+Developer: Meisya Pradana Mentari
+Mentor: Reza Ikbal
+API Provider: Dicoding Story API
+Map Service: Leaflet.js & OpenStreetMap Contributors
+Icons: Emoji (Native) & Custom Design
+PWA Resources: web.dev, MDN Web Docs
+
+# ============================================
+# LICENSE
+# ============================================
+
+This project is created for educational purposes as part of
+Dicoding's "Belajar Pengembangan Web Intermediate" course submission.
+
+All rights reserved. Code may be used for learning purposes with proper attribution.
+
+© 2025 StoryGlow - Developed with 💖 by Meisya Pradana Mentari

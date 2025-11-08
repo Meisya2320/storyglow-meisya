@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - StoryGlow</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #FFE5EC 0%, #FFF0F5 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .offline-container {
+      max-width: 500px;
+      text-align: center;
+      background: white;
+      padding: 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .offline-icon {
+      font-size: 6rem;
+      margin-bottom: 24px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    h1 {
+      font-size: 2rem;
+      color: #2C2C2C;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    
+    .btn-retry {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #FF69B4, #FF8FA3);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(255, 105, 180, 0.3);
+    }
+    
+    .btn-retry:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(255, 105, 180, 0.4);
+    }
+    
+    .offline-features {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 2px solid #FFE4E8;
+    }
+    
+    .offline-features h2 {
+      font-size: 1.3rem;
+      color: #2C2C2C;
+      margin-bottom: 20px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      text-align: left;
+      display: inline-block;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .feature-list li:before {
+      content: "✓ ";
+      color: #FF69B4;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .status-indicator {
+      margin-top: 20px;
+      padding: 12px;
+      background: #FFF3E0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #E65100;
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon">📡❌</div>
+    <h1>Kamu Sedang Offline</h1>
+    <p>
+      Tidak dapat terhubung ke internet. Beberapa fitur mungkin terbatas, 
+      tetapi kamu masih bisa melihat story yang sudah di-cache sebelumnya.
+    </p>
+    
+    <button class="btn-retry" onclick="window.location.reload()">
+      🔄 Coba Lagi
+    </button>
+    
+    <div class="offline-features">
+      <h2>Yang Bisa Kamu Lakukan:</h2>
+      <ul class="feature-list">
+        <li>Lihat story yang sudah di-cache</li>
+        <li>Buat story baru (akan di-sync saat online)</li>
+        <li>Navigasi antar halaman</li>
+      </ul>
+    </div>
+
+    <div class="status-indicator" id="status">
+      ⏳ Menunggu koneksi internet...
+    </div>
+  </div>
+  
+  <script>
+    // Auto-retry setiap 10 detik
+    const checkInterval = setInterval(() => {
+      if (navigator.onLine) {
+        document.getElementById('status').textContent = '✅ Online! Redirecting...';
+        setTimeout(() => {
+          window.location.href = './';
+        }, 1000);
+        clearInterval(checkInterval);
+      }
+    }, 10000);
+    
+    // Listen online event
+    window.addEventListener('online', () => {
+      document.getElementById('status').textContent = '✅ Online! Redirecting...';
+      setTimeout(() => {
+        window.location.href = './';
+      }, 1000);
+    });
+
+    // Update status text
+    setInterval(() => {
+      if (!navigator.onLine) {
+        document.getElementById('status').textContent = 
+          `⏳ Menunggu koneksi... (${new Date().toLocaleTimeString('id-ID')})`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

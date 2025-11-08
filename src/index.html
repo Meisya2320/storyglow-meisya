@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="StoryGlow - Platform review skincare terpercaya dari pengguna di seluruh Dunia. Temukan pengalaman nyata pengguna produk skincare favorit kamu."
+    />
+    <meta name="author" content="Meisya Pradana Mentari" />
+    <meta name="theme-color" content="#FFB6C1" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="StoryGlow" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Favicon & Icons -->
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="/images/icon-192x192.png" />
+
+    <title>StoryGlow</title>
+  </head>
+  <body>
+    <header role="banner" class="site-header">
+      <!-- Skip to main content untuk accessibility -->
+      <a href="#main-content" class="skip-link">Skip to main content</a>
+
+      <div class="main-header container">
+        <a class="brand-name" href="#/" aria-label="StoryGlow Home">
+          <span class="brand-logo">✨</span>
+          <span class="brand-text">StoryGlow</span>
+        </a>
+
+        <nav
+          id="navigation-drawer"
+          class="navigation-drawer"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          <ul id="nav-list" class="nav-list">
+            <li><a href="#/" aria-label="Halaman Beranda">🏠 Beranda</a></li>
+            <li>
+              <a href="#/add-story" aria-label="Tambah Cerita Baru"
+                >✨ Buat Story</a
+              >
+            </li>
+            <li>
+              <a href="#/map" aria-label="Lihat Peta Story">🗺️ Peta</a>
+            </li>
+          </ul>
+
+          <!-- User Info & Logout (Hidden by default) -->
+          <div class="nav-user">
+            <span
+              id="user-info"
+              class="user-info"
+              style="display: none;"
+            ></span>
+            <button
+              id="logout-btn"
+              class="btn-logout"
+              style="display: none;"
+              aria-label="Logout"
+            >
+              Keluar
+            </button>
+          </div>
+        </nav>
+
+        <button
+          id="drawer-button"
+          class="drawer-button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navigation-drawer"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content" role="main">
+      <!-- Dynamic content akan dimuat di sini -->
+    </main>
+
+    <!-- PWA Install Banner (Hidden by default) -->
+    <div
+      id="pwa-install-banner"
+      class="pwa-install-banner"
+      style="display: none;"
+    >
+      <div class="install-banner-content">
+        <div class="install-icon">📱</div>
+        <div class="install-text">
+          <h3>Install StoryGlow</h3>
+          <p>Akses lebih cepat dari home screen</p>
+        </div>
+        <div class="install-actions">
+          <button id="btn-install-pwa" class="btn-install">Install</button>
+          <button id="btn-dismiss-install" class="btn-dismiss">Nanti</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Toggle (Hidden by default, muncul setelah login) -->
+    <div
+      id="notification-toggle"
+      class="notification-toggle"
+      style="display: none;"
+    >
+      <div class="notification-toggle-content">
+        <span class="notification-icon">🔔</span>
+        <div class="notification-text">
+          <strong>Push Notification</strong>
+          <small id="notification-status">Tidak aktif</small>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="notification-switch" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button id="btn-test-notification" class="btn-test-notification" style="display:none; margin-top: 8px; width: 100%; padding: 8px; background: var(--accent-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600;">
+    🧪 Test Notification
+      </button>
+    </div>
+
+      <!-- ✅ TAMBAHAN: Tombol test notification -->
+      <button
+        id="btn-test-notification"
+        class="btn-test-notification"
+        style="
+          display: none;
+          margin-top: 8px;
+          width: 100%;
+          padding: 8px;
+          background: var(--accent-color);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        "
+      >
+        🧪 Test Notification
+      </button>
+    </div>
+
+    <!-- Sync Status Banner (muncul saat ada pending sync) -->
+    <div id="sync-status" class="sync-status" style="display: none;">
+      <div class="sync-content">
+        <span class="sync-icon">⏳</span>
+        <span id="sync-message">Menunggu koneksi untuk sync...</span>
+      </div>
+    </div>
+
+    <footer role="contentinfo" class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">StoryGlow</h3>
+          <p class="footer-description">
+            Platform Berbagi Cerita Menarik di seluruh Dunia
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-heading">Navigasi</h4>
+          <ul class="footer-links">
+            <li><a href="#/">Beranda</a></li>
+            <li><a href="#/add-story">Buat Story</a></li>
+            <li><a href="#/map">Peta</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-heading">Tentang</h4>
+          <p class="footer-text">
+            Submission Belajar Pengembangan Web Intermediate
+          </p>
+          <p class="footer-text">API: Dicoding Story API</p>
+          <p class="footer-text" id="app-version">PWA Ready</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="footer-copyright">
+            © 2025 StoryGlow - Developed with 💖 by
+            <strong>Meisya Pradana Mentari</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
